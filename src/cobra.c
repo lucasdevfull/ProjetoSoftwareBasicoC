@@ -49,6 +49,13 @@ typedef struct { int x, y; } Posicao;            /* posição na grade (não em 
 typedef enum { CIMA, BAIXO, ESQUERDA, DIREITA } Direcao;
 typedef enum { JOGANDO, PAUSADO, FIM_DE_JOGO, VITORIA } Estado;
 
+typedef enum : int {
+    KEY_ESC   = 27,
+    KEY_ENTER = 13,
+    KEY_P_MIN = 'p',
+    KEY_P_MAI = 'P'
+} KeyboardKey;
+
 typedef struct {
     Posicao corpo[MAX_CELULAS];   /* corpo[0] é a cabeça                      */
     int     tamanho;
@@ -139,7 +146,8 @@ static void mover_cobra(void)
         return;
     }
 
-    int comeu = (nova.x == jogo.comida.x && nova.y == jogo.comida.y);
+    // int comeu = (nova.x == jogo.comida.x && nova.y == jogo.comida.y);
+    bool comeu = (nova.x == jogo.comida.x && nova.y == jogo.comida.y);
 
     /* 2) bateu no próprio corpo?
           Se a cobra NÃO vai comer, a ponta da cauda sai do lugar neste passo,
@@ -294,17 +302,17 @@ static void teclado(unsigned char tecla, int x, int y)
     (void)y;
 
     switch (tecla) {
-        case 27:                                    /* ESC: sai da partida */
+        case KEY_ESC:                                    /* ESC: sai da partida */
             glutLeaveMainLoop();
             break;
 
-        case 13:                                    /* ENTER: volta ao menu depois do fim */
+        case KEY_ENTER:                                    /* ENTER: volta ao menu depois do fim */
             if (jogo.estado == FIM_DE_JOGO || jogo.estado == VITORIA)
                 glutLeaveMainLoop();
             break;
 
-        case 'p':
-        case 'P':
+        case KEY_P_MIN:
+        case KEY_P_MAI:
             if (jogo.estado == JOGANDO)
                 jogo.estado = PAUSADO;
             else if (jogo.estado == PAUSADO)
