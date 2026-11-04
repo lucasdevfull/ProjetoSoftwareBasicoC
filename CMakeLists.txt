@@ -1,11 +1,13 @@
-cmake_minimum_required(VERSION 3.20)
+# Atualizado para 3.21+ para garantir suporte nativo ao padrão C23
+cmake_minimum_required(VERSION 3.21)
 project(SNAKE LANGUAGES C CXX)
 
-# Padrões modernos e estáveis (C17 e C++23)
-set(CMAKE_C_STANDARD 17)
+# Modificado para o padrão moderno C23
+set(CMAKE_C_STANDARD 23)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 
+# Mantido o padrão C++23
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
