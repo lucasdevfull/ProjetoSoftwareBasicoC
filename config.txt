@@ -1,0 +1,11 @@
+# Configuracao do Jogo da Cobrinha
+# Valores invalidos (ou este arquivo ausente) usam o padrao da matricula.
+#
+# grade:      casas por lado (10 a 40)
+# velocidade: ms entre passos no inicio (50 a 1000)
+# cor:        verde, azul, laranja, roxo ou amarelo
+# pontos:     pontos por comida (1 a 1000)
+grade=14
+velocidade=180
+cor=roxo
+pontos=15
