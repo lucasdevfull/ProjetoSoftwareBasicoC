@@ -26,6 +26,10 @@ add_executable(cobra
     src/main.c
     src/cobra.c
     src/historico.c
+    src/config.c
+    src/ranking.c
+    src/render.c
+    src/jogo.c
 )
 
 target_include_directories(cobra PRIVATE 
