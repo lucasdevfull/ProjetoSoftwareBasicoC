@@ -1,9 +1,4 @@
-/*
- * render.c - Janela, desenho e eventos (veja render.h).
- */
-
 #include "render.h"
-
 #include <stdio.h>
 #include <GL/freeglut.h>
 

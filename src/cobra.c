@@ -1,9 +1,4 @@
-/*
- * cobra.c - Funções da cobra (veja cobra.h).
- */
-
 #include "cobra.h"
-
 #include <string.h>
 
 static Direcao direcao_oposta(Direcao d)

@@ -1,10 +1,4 @@
-/*
- * historico.c - Gravação e leitura do histórico de partidas (arquivo texto).
- * O formato do arquivo está descrito em historico.h.
- */
-
 #include "historico.h"
-
 #include <stdio.h>
 #include <string.h>
 

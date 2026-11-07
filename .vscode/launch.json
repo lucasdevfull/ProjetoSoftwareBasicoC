@@ -10,6 +10,16 @@
             "cwd": "${workspaceFolder}",
             "terminal": "integrated",
             "preLaunchTask": "CMake: build"
+        },
+        {
+            "name": "Release OpenGL App",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/build-release/cobra",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "terminal": "integrated",
+            "preLaunchTask": "Build Release"
         }
     ]
 }

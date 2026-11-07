@@ -1,9 +1,4 @@
-/*
- * jogo.c - Regras de uma partida (veja jogo.h).
- */
-
 #include "jogo.h"
-
 #include <stdlib.h>
 
 /* Sorteia uma casa que a cobra não ocupa. */
@@ -74,25 +69,21 @@ void jogo_passo(Jogo *j)
 
     nova = cobra_proxima_cabeca(&j->cobra);
 
-    /* 1) bateu na parede? */
     if (fora_da_grade(j, nova)) {
         encerrar(j, FIM_DE_JOGO);
         return;
     }
 
-    /* 2) bateu no próprio corpo? */
     comeu = (nova.x == j->comida.x && nova.y == j->comida.y);
     if (cobra_bate_no_corpo(&j->cobra, nova, comeu)) {
         encerrar(j, FIM_DE_JOGO);
         return;
     }
 
-    /* 3) anda (e cresce, se comeu) */
     cobra_move(&j->cobra, comeu);
     if (!comeu)
         return;
 
-    /* 4) pontuação, aceleração e nova comida */
     j->pontos += j->pontos_por_comida;
     j->comidas++;
     acelerar(j);

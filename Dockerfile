@@ -4,6 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Dependências de compilação, OpenGL, FreeGLUT e utilitários de janela/Mesa
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates \
     build-essential \
     gdb \
     cmake \

@@ -1,8 +1,3 @@
-/*
- * main.c - Menu no console. A partida roda na janela (render.c) e, ao final
- *          de cada uma, o resultado vai para o ranking e para o histórico.
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -63,19 +58,27 @@ static int ler_numero(int *valor)
 static void ler_nome(char *destino, size_t tamanho)
 {
     char linha[128];
-    char *ini = linha;
+    char *ini;
     size_t n;
 
-    printf("Digite seu nome (ate %d caracteres): ", TAM_NOME - 1);
-    fflush(stdout);
-    if (!ler_linha(linha, sizeof linha))
-        linha[0] = '\0';
+    for (;;) {
+        printf("Digite seu nome (ate %d caracteres): ", TAM_NOME - 1);
+        fflush(stdout);
+        if (!ler_linha(linha, sizeof linha))
+            linha[0] = '\0';                         
+        ini = linha;
+        while (*ini == ' ')                          
+            ini++;
+        n = strlen(ini);
+        while (n > 0 && ini[n - 1] == ' ')
+            ini[--n] = '\0';
 
-    while (*ini == ' ')                              /* tira os espaços das pontas */
-        ini++;
-    n = strlen(ini);
-    while (n > 0 && ini[n - 1] == ' ')
-        ini[--n] = '\0';
+        if (n <= TAM_NOME - 1)
+            break;                                   
+
+        printf("Aviso: o nome nao pode exceder %d caracteres (voce digitou %zu).\n",
+               TAM_NOME - 1, n);
+    }
 
     strncpy(destino, (n > 0) ? ini : "Anonimo", tamanho - 1);
     destino[tamanho - 1] = '\0';

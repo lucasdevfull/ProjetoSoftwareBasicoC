@@ -1,9 +1,4 @@
-/*
- * ranking.c - Ranking dos 5 melhores (veja ranking.h).
- */
-
 #include "ranking.h"
-
 #include <stdio.h>
 #include <string.h>
 

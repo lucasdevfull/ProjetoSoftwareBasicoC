@@ -1,6 +1,5 @@
 #include "config.h"
 #include "cobra.h"
-
 #include <stdio.h>
 #include <string.h>
 
